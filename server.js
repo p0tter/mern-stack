@@ -18,8 +18,10 @@ mongoose
     .connect(db,{useUnifiedTopology: true , useNewUrlParser: true})
     .then(()=>console.log('MongoDB connected'))
     .catch(err=> console.log(err));
+    
+app.set('port', process.env.PORT || 5000);
 
-const P0RT = process.env.P0RT || 5000;
+//const P0RT = process.env.P0RT || 5000;
 
 //use routes
 app.use('/api/items/', items);
@@ -34,4 +36,4 @@ if(process.env.NODE_ENV === 'production'){
     });
 }
 
-app.listen(P0RT, ()=> console.log(`Server started on port ${P0RT}`))
+app.listen(app.get('port'), ()=> console.log(`Server started on port ${app.get('port')}`))
