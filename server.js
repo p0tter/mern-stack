@@ -19,7 +19,7 @@ mongoose
     .then(()=>console.log('MongoDB connected'))
     .catch(err=> console.log(err));
 
-const port = process.env.P0RT || 5000;
+const P0RT = process.env.P0RT || 5000;
 
 //use routes
 app.use('/api/items/', items);
@@ -34,4 +34,4 @@ if(process.env.NODE_ENV === 'production'){
     });
 }
 
-app.listen(port, ()=> console.log(`Server started on port ${port}`))
+app.listen(P0RT, ()=> console.log(`Server started on port ${P0RT}`))
