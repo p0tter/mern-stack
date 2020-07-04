@@ -6,9 +6,13 @@ import {Container} from 'reactstrap';
 import ItemModal from './components/itemModal';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {loadUser} from './actions/authActions';
 import './App.css';
 
 class App extends Component {
+  componentDidMount(){
+    store.dispatch(loadUser());
+  }
   render(){
     return(
       <Provider store={store}>
